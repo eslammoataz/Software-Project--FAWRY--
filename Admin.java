@@ -13,8 +13,4 @@ public class Admin implements User{
     public void singout() {
 
     }
-    //kjhkhhjhkhj
-    //dsdad
-    // smsm is the seka
-    // conflict check
 }
