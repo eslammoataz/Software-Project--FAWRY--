@@ -1,8 +1,10 @@
 public class Customer implements User{
-    int wallet;
-
-    public Customer(int wallet) {
-        this.wallet = wallet;
+    int wallet=0;
+    String userName;
+    String password;
+    public Customer(String _userName , String _password) {
+        this.userName=_userName;
+        this.password=_password;
     }
 
     @Override
