@@ -16,6 +16,4 @@ public class Admin implements User{
     //kjhkhhjhkhj
     //dsdad
     // smsm is the seka
-    // conflict check
-    //yy
 }
