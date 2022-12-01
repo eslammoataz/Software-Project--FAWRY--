@@ -13,5 +13,4 @@ public class Admin implements User{
     public void singout() {
 
     }
-    //// eslam say no
 }
