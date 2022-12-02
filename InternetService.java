@@ -1,5 +1,5 @@
 public class InternetService implements Services{
-    void display(){
+    static void display(){
         System.out.println("Internet Service Running");
     }
 

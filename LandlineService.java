@@ -1,5 +1,5 @@
 public class LandlineService implements Services{
-    void display(){
+    static void display(){
         System.out.println("Landline Service Running");
     }
 

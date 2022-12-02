@@ -1,5 +1,5 @@
 public class DonationService implements Services{
-    void display(){
+    static void  display(){
         System.out.println("Donation Service Running");
     }
 
