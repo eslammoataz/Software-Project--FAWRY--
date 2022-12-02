@@ -48,7 +48,7 @@ public class Main {
             //get input from user
             String Usertype;
             while (true) {
-                System.out.println("    \tChoose \n----------------------- \n 1.Admin \n 2.Customer\n");
+                System.out.println("    \tChoose \n----------------------- \n 1.Admin \t 2.Customer\n");
                 Usertype = cin.next();
                 if (Usertype.equals("1")){ // handling sign in for the admin
                     System.out.println("Enter Email:");

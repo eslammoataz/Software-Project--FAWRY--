@@ -1,4 +1,5 @@
-public class Customer implements User{
+public class Customer implements User , Observer {
+
     double wallet=0;
     //list transactions
     //list refunds
@@ -27,5 +28,10 @@ public class Customer implements User{
     }
     public void refundRequest(){
 
+    }
+
+    @Override
+    public void update(String message) {
+        System.out.println("Got New Notification about Refund !"+userName+" \n"+message);
     }
 }
