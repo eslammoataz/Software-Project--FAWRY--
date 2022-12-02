@@ -17,7 +17,8 @@ public class Main {
 
         //adding admins to the list of admins authorized
         admins.add(admin);
-
+        admins.add(admin1);
+        admins.add(admin2);
 
         //creating customers object " account
         Customer customer1 = new Customer("ali@gmail.com", "ali","235");
