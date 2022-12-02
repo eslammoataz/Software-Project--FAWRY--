@@ -1,6 +1,7 @@
 public class CashPayment implements Payment{
+    double amount;
     @Override
-    public void pay() {
+    public void paymentCost() {
 
     }
 }

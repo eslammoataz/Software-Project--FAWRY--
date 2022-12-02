@@ -1,7 +1,7 @@
 public class Admin implements User{
     String email;
     String userName;
-     String password;
+    String password;
     public  Admin(String _email , String _userName , String _password){
         this.email=_email;
         this.userName=_userName;
@@ -18,7 +18,12 @@ public class Admin implements User{
     public void addDiscount(){
 
     }
-    public void listRefunds(){
+    public void viewRefunds(){
+    }
+    public void signOut(){
+
+    }
+    public void dealWithRefund(){
 
     }
 

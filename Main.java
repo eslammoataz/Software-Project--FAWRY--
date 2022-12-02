@@ -14,8 +14,11 @@ public class Main {
 
         //creating customers object " account
         Customer customer1 = new Customer("ali@gmail.com", "ali","235");
+        customer1.wallet = 500;
         Customer customer2 = new Customer("oka@gmail.com", "oka","365");
+        customer2.wallet = 700;
         Customer customer3 = new Customer("maged@gmail.com", "maged","987");
+        customer3.wallet = 300;
 
         //adding admins to the list of admins authorized
         admins.add(admin);
@@ -32,7 +35,7 @@ public class Main {
 
         // choice to signin or signup
         String Signtype; // holds Signtype of operation in or up
-        System.out.println("if you want to : \n Signin Enter (1) \n Signup Enter (2) \n");
+        System.out.println("if you want to : \n Signin Enter (1) \n Register Enter (2) \n");
         Signtype = cin.next();
 
         if (Signtype.equals("1")) { // sign in

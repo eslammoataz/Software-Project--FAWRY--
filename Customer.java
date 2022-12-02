@@ -1,5 +1,7 @@
 public class Customer implements User{
-    int wallet=0;
+    double wallet=0;
+    //list transactions
+    //list refunds
     String email ;
     String userName;
     String password;
@@ -11,12 +13,19 @@ public class Customer implements User{
 
     @Override
     public void login() {
-
     }
 
     @Override
     public void register() {
 
     }
+    public void signOut(){
 
+    }
+    public void searchService(){
+
+    }
+    public void refundRequest(){
+
+    }
 }
