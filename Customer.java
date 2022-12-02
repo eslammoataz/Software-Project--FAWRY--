@@ -23,7 +23,8 @@ public class Customer implements User , Observer {
     public void signOut(){
 
     }
-    public void searchService(){
+    public void searchService(String Service){
+
 
     }
     public void refundRequest(){

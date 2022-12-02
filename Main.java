@@ -38,7 +38,7 @@ public class Main {
         String username;
         String password;
 
-
+        int flag = 0;
         // choice to login or register
         String Signtype; // holds Signtype of operation in or up
         System.out.println("    \tChoose \n-----------------------\n1- Login\t2- Register\n");
@@ -48,7 +48,7 @@ public class Main {
             //get input from user
             String Usertype;
             while (true) {
-                System.out.println("    \tChoose \n----------------------- \n 1.Admin \t 2.Customer\n");
+                System.out.println("    \tChoose \n----------------------- \n 1.Admin \n 2.Customer\n");
                 Usertype = cin.next();
                 if (Usertype.equals("1")){ // handling sign in for the admin
                     System.out.println("Enter Email:");
@@ -60,6 +60,7 @@ public class Main {
                         if (value.email.equals(email) &&value.password.equals(password)) {
                             System.out.println("Login Successfully");
                             ok = 1;
+                            flag=1;
                             break;
                         }
                     }
@@ -75,8 +76,9 @@ public class Main {
                     int ok = 0;
                     for (Customer customer : customers) {
                         if (customer.email.equals(email) &&customer.password.equals(password)) {
-                            System.out.println("Login Successfully");
+                            System.out.println("Login Succesfully");
                             ok = 1;
+                            flag=0;
                             break;
                         }
                     }
@@ -98,6 +100,7 @@ public class Main {
                     System.out.println("Enter Password");
                     password = cin.next();
                     int ok = 1;
+                    flag =1;
                     // check if the user is registered before
                     for (Admin value : admins) {
                         if (value.email.equals(email) &&value.userName.equals(username) && value.password.equals(password)) {
@@ -120,6 +123,7 @@ public class Main {
                     System.out.println("Enter Password");
                     password = cin.next();
                     int ok = 1;
+                    flag = 0;
                     // check if the user is registered before
                     for (Customer customer : customers) {
                         if (customer.email.equals(email) &&customer.userName.equals(username) && customer.password.equals(password)) {
@@ -136,8 +140,28 @@ public class Main {
                 }
             }
         }
+    if ( flag == 1){
+        System.out.println("--------| Hello Admin |-------\n What Do You Want To Do ?\n 1.Add Discount \n 2.View Refunds\n 3.Deal With Refunds");
+    }
+    else if ( flag == 0 ){
+        System.out.println("-------| Hello Customer |-------\n 1.Show Services Menu \n 2.Search for Service ");
+        String ServiceType = cin.next();
+        if ( ServiceType.equals("1")){   // The customer choose from services menu
+            System.out.println("----- |Services Menu| -----\n1.Mobile Recharge Services\n2.Internet Services\n3.Landline Services\n4.Donations");
+        }
+        else if (ServiceType.equals("2")){   // The Customer type the service he needs manually
+            System.out.println("Enter The Service You Need : ");
+            String ServType = cin.next();
+            ServiceFactory.getService(ServType);  //Service factory is running
+            };
+
+        }
+
     }
 
-}
+
+    }
+
+
 
 
