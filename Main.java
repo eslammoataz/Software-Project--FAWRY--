@@ -75,7 +75,7 @@ public class Main {
                     int ok = 0;
                     for (Customer customer : customers) {
                         if (customer.email.equals(email) &&customer.password.equals(password)) {
-                            System.out.println("Login Succesfully");
+                            System.out.println("Login Successfully");
                             ok = 1;
                             break;
                         }
