@@ -1,7 +1,10 @@
 public class WalletPayment implements Payment{
-    double amount;
-    @Override
-    public void paymentCost() {
 
+
+    @Override
+    public void paymentCost(String amount) {
+        System.out.println("Customer pays the money " + amount + " using his Wallet " );
     }
+
+
 }

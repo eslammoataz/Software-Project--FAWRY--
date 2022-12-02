@@ -1,4 +1,6 @@
 public interface Payment {
-     double amount =  0;
-     void paymentCost();
+
+     void paymentCost(String amount);
+
+
 }

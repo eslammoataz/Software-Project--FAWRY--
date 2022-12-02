@@ -1,7 +1,8 @@
 public class CreditCardPayment implements Payment{
-    double amount;
+
     @Override
-    public void paymentCost() {
+    public void paymentCost(String amount) {
+        System.out.println("Customer pays the money " + amount + " using Credit Card");
 
     }
 }
