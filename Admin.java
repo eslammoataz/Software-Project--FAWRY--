@@ -6,11 +6,11 @@ public class Admin implements User{
         this.password=_password;
     }
     @Override
-    public void singin() {
+    public void signIn() {
 
     }
     @Override
-    public void singout() {
+    public void signOut() {
 
     }
 }

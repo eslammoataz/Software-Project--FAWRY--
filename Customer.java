@@ -8,12 +8,12 @@ public class Customer implements User{
     }
 
     @Override
-    public void singin() {
+    public void signIn() {
 
     }
 
     @Override
-    public void singout() {
+    public void signOut() {
 
     }
 }

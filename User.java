@@ -1,4 +1,4 @@
 public interface User {
-     void singin();
-     void singout();
+     void signIn();
+     void signOut();
 }
