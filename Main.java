@@ -10,12 +10,12 @@ public class Main {
         Scanner cin = new Scanner(System.in);
 
         // creating admin object  "account"
-        Admin admin = new Admin("eslam", "123");
+        Admin admin = new Admin("eslam@gmail.com","eslam","123");
 
         //creating customers object " account
-        Customer customer1 = new Customer("ali", "123");
-        Customer customer2 = new Customer("oka", "123");
-        Customer customer3 = new Customer("maged", "123");
+        Customer customer1 = new Customer("ali@gmail.com", "ali","235");
+        Customer customer2 = new Customer("oka@gmail.com", "oka","365");
+        Customer customer3 = new Customer("maged@gmail.com", "maged","987");
 
         //adding admins to the list of admins authorized
         admins.add(admin);
@@ -25,6 +25,7 @@ public class Main {
         customers.add(customer2);
         customers.add(customer3);
 
+        String email;
         String username;
         String password;
 
@@ -41,13 +42,15 @@ public class Main {
                 System.out.println("User Signtype \n 1.Admin \n 2.Customer");
                 Usertype = cin.next();
                 if (Usertype.equals("1")){ // handling sign in for the admin
+                    System.out.println("Enter Email: ");
+                    email = cin.next();
                     System.out.println("Enter UserName: ");
                     username = cin.next();
                     System.out.println("Enter Password");
                     password = cin.next();
                     int ok = 0;
                     for (Admin value : admins) {
-                        if (value.userName.equals(username) && value.password.equals(password)) {
+                        if (value.email.equals(email) &&value.userName.equals(username) && value.password.equals(password)) {
                             System.out.println("Sing in Succesfully");
                             ok = 1;
                             break;
@@ -58,13 +61,15 @@ public class Main {
                     }else break;
                 } else {
                     // handling sign in for the customer
+                    System.out.println("Enter Email: ");
+                    email = cin.next();
                     System.out.println("Enter UserName: ");
                     username = cin.next();
                     System.out.println("Enter Password");
                     password = cin.next();
                     int ok = 0;
                     for (Customer customer : customers) {
-                        if (customer.userName.equals(username) && customer.password.equals(password)) {
+                        if (customer.email.equals(email) &&customer.userName.equals(username) && customer.password.equals(password)) {
                             System.out.println("Sing in Succesfully");
                             ok = 1;
                             break;
@@ -81,6 +86,8 @@ public class Main {
                 System.out.println("User Signtype \n 1.Admin \n 2.Customer");
                 Usertype = cin.next();
                 if (Usertype.equals("1")) { // handling sign in for the admin
+                    System.out.println("Enter Email: ");
+                    email = cin.next();
                     System.out.println("Enter UserName: ");
                     username = cin.next();
                     System.out.println("Enter Password");
@@ -88,7 +95,7 @@ public class Main {
                     int ok = 1;
                     // check if the user is registered before
                     for (Admin value : admins) {
-                        if (value.userName.equals(username) && value.password.equals(password)) {
+                        if (value.email.equals(email) &&value.userName.equals(username) && value.password.equals(password)) {
                             System.out.println("user registerd to the System before ");
                             ok = 0;
                             break;
@@ -96,11 +103,13 @@ public class Main {
                     }
                     if (ok == 1) { // user not registered before
                         System.out.println("Sing up Succesfully");
-                        admins.add(new Admin(username, password));
+                        admins.add(new Admin(email, username, password));
                         break;
                     }
                 } else {
                     // handling sign up for the customer
+                    System.out.println("Enter Email: ");
+                    email = cin.next();
                     System.out.println("Enter UserName: ");
                     username = cin.next();
                     System.out.println("Enter Password");
@@ -108,7 +117,7 @@ public class Main {
                     int ok = 1;
                     // check if the user is registered before
                     for (Customer customer : customers) {
-                        if (customer.userName.equals(username) && customer.password.equals(password)) {
+                        if (customer.email.equals(email) &&customer.userName.equals(username) && customer.password.equals(password)) {
                             System.out.println("user registerd to the System before ");
                             ok = 0;
                             break;
@@ -116,7 +125,7 @@ public class Main {
                     }
                     if (ok == 1) { // user not registered before
                         System.out.println("Sing up Succesfully");
-                        customers.add(new Customer(username, password));
+                        customers.add(new Customer(email,username, password));
                         break;
                     }
                 }

@@ -1,16 +1,25 @@
 public class Admin implements User{
-     String userName;
+    String email;
+    String userName;
      String password;
-    public  Admin(String _userName , String _password){
+    public  Admin(String _email , String _userName , String _password){
+        this.email=_email;
         this.userName=_userName;
         this.password=_password;
     }
     @Override
-    public void signIn() {
+    public void login() {
 
     }
     @Override
-    public void signOut() {
+    public void register() {
 
     }
+    public void addDiscount(){
+
+    }
+    public void listRefunds(){
+
+    }
+
 }

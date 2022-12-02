@@ -1,4 +1,4 @@
 public interface User {
-     void signIn();
-     void signOut();
+     void login();
+     void register();
 }
