@@ -23,12 +23,14 @@ public class Customer implements User , Observer {
     public void signOut(){
 
     }
-    public void searchService(String Service){
-
+    public static void searchService(){
 
     }
-    public void refundRequest(){
-
+    public void refundRequest (Transaction a){
+        Refund refund = new Refund(a);
+        refund.transaction.userName = a.userName;
+        refund.transaction.amount= a.amount;
+        refund.state= "Pending";
     }
 
     @Override

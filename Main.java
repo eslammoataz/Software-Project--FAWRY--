@@ -10,9 +10,9 @@ public class Main {
         Scanner cin = new Scanner(System.in);
 
         // creating admin object  "account"
-        Admin admin = new Admin("eslam@gmail.com","eslam","123");
-        Admin admin1 = new Admin("kareem@gmail.com","kareem","456");
-        Admin admin2 = new Admin("hassan@gmail.com","hassan","000");
+        Admin admin = new Admin("eslam@gmail.com", "eslam", "123");
+        Admin admin1 = new Admin("kareem@gmail.com", "kareem", "456");
+        Admin admin2 = new Admin("hassan@gmail.com", "hassan", "000");
 
 
         //adding admins to the list of admins authorized
@@ -21,11 +21,11 @@ public class Main {
         admins.add(admin2);
 
         //creating customers object " account
-        Customer customer1 = new Customer("ali@gmail.com", "ali","235");
+        Customer customer1 = new Customer("ali@gmail.com", "ali", "235");
         customer1.wallet = 500;
-        Customer customer2 = new Customer("oka@gmail.com", "oka","365");
+        Customer customer2 = new Customer("oka@gmail.com", "oka", "365");
         customer2.wallet = 700;
-        Customer customer3 = new Customer("maged@gmail.com", "maged","987");
+        Customer customer3 = new Customer("maged@gmail.com", "maged", "987");
         customer3.wallet = 300;
 
 
@@ -50,23 +50,23 @@ public class Main {
             while (true) {
                 System.out.println("    \tChoose \n----------------------- \n 1.Admin \n 2.Customer\n");
                 Usertype = cin.next();
-                if (Usertype.equals("1")){ // handling sign in for the admin
+                if (Usertype.equals("1")) { // handling sign in for the admin
                     System.out.println("Enter Email:");
                     email = cin.next();
                     System.out.println("Enter Password");
                     password = cin.next();
                     int ok = 0;
                     for (Admin value : admins) {
-                        if (value.email.equals(email) &&value.password.equals(password)) {
+                        if (value.email.equals(email) && value.password.equals(password)) {
                             System.out.println("Login Successfully");
                             ok = 1;
-                            flag=1;
+                            flag = 1;
                             break;
                         }
                     }
                     if (ok == 0) {
                         System.out.println("No such user registered to the System");
-                    }else break;
+                    } else break;
                 } else {
                     // handling sign in for the customer
                     System.out.println("Enter Email: ");
@@ -75,15 +75,15 @@ public class Main {
                     password = cin.next();
                     int ok = 0;
                     for (Customer customer : customers) {
-                        if (customer.email.equals(email) &&customer.password.equals(password)) {
-                            System.out.println("Login Succesfully");
+                        if (customer.email.equals(email) && customer.password.equals(password)) {
+                            System.out.println("Login Successfully :)");
                             ok = 1;
                             break;
                         }
                     }
                     if (ok == 0) { // not signed in
-                        System.out.println("No such user registered to the System");
-                    }else break;
+                        System.out.println("No Such User Registered to the System");
+                    } else break;
                 }
             }
         } else if (Signtype.equals("2")) {  // Register
@@ -99,17 +99,17 @@ public class Main {
                     System.out.println("Enter Password");
                     password = cin.next();
                     int ok = 1;
-                    flag =1;
+                    flag = 1;
                     // check if the user is registered before
                     for (Admin value : admins) {
-                        if (value.email.equals(email) &&value.userName.equals(username) && value.password.equals(password)) {
-                            System.out.println("user registered to the System before ");
+                        if (value.email.equals(email) && value.userName.equals(username) && value.password.equals(password)) {
+                            System.out.println("Already Registered :) ");
                             ok = 0;
                             break;
                         }
                     }
                     if (ok == 1) { // user not registered before
-                        System.out.println("Registered Successfully");
+                        System.out.println("Registered Successfully :)");
                         admins.add(new Admin(email, username, password));
                         break;
                     }
@@ -125,33 +125,37 @@ public class Main {
                     flag = 0;
                     // check if the user is registered before
                     for (Customer customer : customers) {
-                        if (customer.email.equals(email) &&customer.userName.equals(username) && customer.password.equals(password)) {
-                            System.out.println("user registered to the System before ");
+                        if (customer.email.equals(email) && customer.userName.equals(username) && customer.password.equals(password)) {
+                            System.out.println("Already Registered :) ");
                             ok = 0;
                             break;
                         }
                     }
                     if (ok == 1) { // user not registered before
-                        System.out.println("Registration Succesfully");
-                        customers.add(new Customer(email,username, password));
+                        System.out.println("Registration Successfully :)");
+                        customers.add(new Customer(email, username, password));
                         break;
                     }
                 }
             }
         }
-    if ( flag == 1){
-        System.out.println("--------| Hello Admin |-------\n What Do You Want To Do ?\n 1.Add Discount \n 2.View Refunds Requests\n 3.Deal With Refunds");
-    }
-    else if ( flag == 0 ){
-        System.out.println("-------| Hello Customer |-------\n 1.Show Services Menu \n 2.Search for Service ");
-        String ServiceType = cin.next();
-        if ( ServiceType.equals("1")){   // The customer choose from services menu
-            System.out.println("----- |Services Menu| -----\n1.Mobile Recharge Services\n2.Internet Services\n3.Landline Services\n4.Donations");
-        }
-        else if (ServiceType.equals("2")){   // The Customer type the service he needs manually
-            System.out.println("Enter The Service You Need : ");
-            String ServType = cin.next();
-            ServiceFactory.getService(ServType);  //Service factory is running
+        if (flag == 1) {
+            System.out.println("--------| Hello Admin |-------\n What Do You Want To Do ?\n 1.Add Discount \n 2.View Refunds Requests\n 3.Deal With Refunds");
+        } else if (flag == 0) {
+            System.out.println("-------| Hello Customer |-------\n 1.Show Services Menu \n 2.Search for Service ");
+            String ServiceType = cin.next();
+            if (ServiceType.equals("1")) {   // The customer choose from services menu
+                System.out.println("----- |Services Menu| -----\n1.Mobile Recharge Services\n2.Internet Services\n3.Landline Services\n4.Donations");
+                String choice = cin.next();
+                ServiceFactory.getService(choice);
+
+
+            } else if (ServiceType.equals("2")) {   // The Customer type the service he needs manually
+                System.out.println("Enter The Service You Need : ");
+                String ServType = cin.next();
+                ServiceFactory.getService(ServType);      //Service factory is running
+
+
             }
         }
 
@@ -159,7 +163,7 @@ public class Main {
     }
 
 
-    }
+}
 
 
 
