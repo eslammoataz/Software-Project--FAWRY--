@@ -78,7 +78,6 @@ public class Main {
                         if (customer.email.equals(email) &&customer.password.equals(password)) {
                             System.out.println("Login Succesfully");
                             ok = 1;
-                            flag=0;
                             break;
                         }
                     }
@@ -141,7 +140,7 @@ public class Main {
             }
         }
     if ( flag == 1){
-        System.out.println("--------| Hello Admin |-------\n What Do You Want To Do ?\n 1.Add Discount \n 2.View Refunds\n 3.Deal With Refunds");
+        System.out.println("--------| Hello Admin |-------\n What Do You Want To Do ?\n 1.Add Discount \n 2.View Refunds Requests\n 3.Deal With Refunds");
     }
     else if ( flag == 0 ){
         System.out.println("-------| Hello Customer |-------\n 1.Show Services Menu \n 2.Search for Service ");
@@ -153,8 +152,7 @@ public class Main {
             System.out.println("Enter The Service You Need : ");
             String ServType = cin.next();
             ServiceFactory.getService(ServType);  //Service factory is running
-            };
-
+            }
         }
 
 
