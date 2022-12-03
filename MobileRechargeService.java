@@ -3,7 +3,7 @@ import java.util.*;
 public class MobileRechargeService implements Services{
     Scanner sc= new Scanner(System.in);
 
- static void display(){
+ public void display(){
     System.out.println("Mobile Recharge Running");
 }
 void payment(String s,double amount){

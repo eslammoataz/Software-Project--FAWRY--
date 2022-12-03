@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class LandlineService implements Services{
-    static void display(){
+     public void display(){
         System.out.println("Landline Service Running");
     }
 

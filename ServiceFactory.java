@@ -1,6 +1,6 @@
 public class ServiceFactory {
     //use getService methode
-    public static Object getService(String ServiceName) {
+    public Services getService(String ServiceName) {
         if (ServiceName.equalsIgnoreCase("Mobile Recharge Service") || ServiceName.equals("1")) {
             return new MobileRechargeService();
         } else if (ServiceName.equalsIgnoreCase("Internet Service") || ServiceName.equals("2")) {

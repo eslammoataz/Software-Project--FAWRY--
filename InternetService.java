@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class InternetService implements Services{
     Scanner sc= new Scanner(System.in);
 
-    static void display(){
+    public void display(){
         System.out.println("Internet Service Running");
     }
     void payment(String a,double amount){

@@ -101,14 +101,15 @@ public class Main {
             if (ServiceType.equals("1")) {   // The customer choose from services menu
                 System.out.println("----- |Services Menu| -----\n1.Mobile Recharge Services\n2.Internet Services\n3.Landline Services\n4.Donations");
                 String choice = cin.next();
-                ServiceFactory.getService(choice);
-
-
+                ServiceFactory SF = new ServiceFactory();
+                Services service = SF.getService(choice);
+                service.display();
             } else if (ServiceType.equals("2")) {   // The Customer type the service he needs manually
                 System.out.println("Enter The Service You Need : ");
-                String ServType = cin.next();
-                ServiceFactory.getService(ServType);      //Service factory is running
-
+                String choice = cin.next();
+                ServiceFactory SF = new ServiceFactory();
+                Services service = SF.getService(choice);     //Service factory is running
+                service.display();
 
             }
         }

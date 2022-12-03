@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class DonationService implements Services{
-    static void  display(){
+    public void  display(){
         System.out.println("Donation Service Running");
     }
 
