@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class InternetService implements Services{
@@ -17,4 +18,9 @@ public class InternetService implements Services{
     }
 
 
+    @Override
+    public int getCost() {
+        Random r = new Random();
+        return r.nextInt(700) + 1;
+    }
 }

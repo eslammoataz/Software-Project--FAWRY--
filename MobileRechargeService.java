@@ -16,4 +16,9 @@ void payment(String s,double amount){
     transaction.amount = amount;
 }
 
+    @Override
+    public int getCost() {
+        Random r = new Random();
+        return r.nextInt(1000) + 1;
+    }
 }

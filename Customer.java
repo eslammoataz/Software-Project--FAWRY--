@@ -1,40 +1,58 @@
-public class Customer implements User , Observer {
+import java.util.ArrayList;
+import java.util.Scanner;
 
-    double wallet=0;
+public class Customer implements User, Observer {
+
+    double wallet = 0;
+    Scanner cin = new Scanner(System.in);
     //list transactions
     //list refunds
-    String email ;
+    String email;
     String userName;
     String password;
-    public Customer(String _email , String _userName , String _password) {
-        this.email=_email;
-        this.userName=_userName;
-        this.password=_password;
+    ArrayList<Transaction> transactions = new ArrayList<>();
+
+    public Customer(String _email, String _userName, String _password) {
+        this.email = _email;
+        this.userName = _userName;
+        this.password = _password;
     }
 
     @Override
-    public void login() {
+    public Boolean login(DataBase dataBase, String email, String password) {
+        Boolean ok = dataBase.checkCustomer(email, password);
+        return ok;
+
     }
 
     @Override
-    public void register() {
+    public Boolean register(DataBase dataBase, String email, String userName, String password) {
+        Boolean ok = dataBase.checkCustomer(email, password);
+        if (!ok) {
+            dataBase.addCustomer(email, userName, password);
+            return true;
+        }
+        return false;
+    }
+
+    public Boolean signOut() {
+
+        return null;
+    }
+
+    public static void searchService() {
 
     }
-    public void signOut(){
 
-    }
-    public static void searchService(){
-
-    }
-    public void refundRequest (Transaction a){
+    public void refundRequest(Transaction a) {
         Refund refund = new Refund(a);
         refund.transaction.userName = a.userName;
-        refund.transaction.amount= a.amount;
-        refund.state= "Pending";
+        refund.transaction.amount = a.amount;
+        refund.state = "Pending";
     }
 
     @Override
     public void update(String message) {
-        System.out.println("Got New Notification about Refund !"+userName+" \n"+message);
+        System.out.println("Got New Notification about Refund !" + userName + " \n" + message);
     }
 }
