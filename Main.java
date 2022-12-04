@@ -6,19 +6,19 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner cin = new Scanner(System.in);
-        Customer customer= new Customer(null,null,null);
-        Admin admin= new Admin(null,null,null);
+        Customer customer = new Customer(null, null, null);
+        Admin admin = new Admin(null, null, null);
         //database of all info of the users
         DataBase dataBase = new DataBase();
 
         //adding admins to the list of admins authorized
-        dataBase.addAdmin("eslam@gmail.com", "eslam", "123");
+        dataBase.addAdmin("ali", "eslam", "123");
         dataBase.addAdmin("kareem@gmail.com", "kareem", "123");
         dataBase.addAdmin("hassan@gmail.com", "hassan", "000");
 
         //adding Customers to the list of customers database
         dataBase.addCustomer("ali@gmail.com", "ali", "123");
-        dataBase.addCustomer("oka@gmail.com", "oka", "123");
+        dataBase.addCustomer("oka", "oka", "123");
         dataBase.addCustomer("maged@gmail.com", "maged", "000");
 
         String email;
@@ -34,7 +34,7 @@ public class Main {
                 //get input from user
                 String Usertype;
                 System.out.println("    \tChoose \n----------------------- \n 1.Admin \n 2.Customer\n");
-                 Usertype= cin.next(); // user typer admin or customer
+                Usertype = cin.next(); // user typer admin or customer
 
                 System.out.println("Enter Email:");
                 email = cin.next();
@@ -42,7 +42,7 @@ public class Main {
                 password = cin.next();
 
                 if (Usertype.equals("1")) { // handling sign in for the admin
-                    Boolean ok = admin.login(dataBase ,email, password);
+                    Boolean ok = admin.login(dataBase, email, password);
                     if (ok) {
                         System.out.println("Login Successfully");
                         flag = 1;
@@ -51,7 +51,7 @@ public class Main {
                         System.out.println("No such user registered to the System");
                 } else {
                     // handling sign in for the customer
-                    Boolean ok = customer.login(dataBase , email , password );
+                    Boolean ok = customer.login(dataBase, email, password);
                     if (ok) {
                         System.out.println("Login Successfully");
                         login = 1;
@@ -70,7 +70,7 @@ public class Main {
                 System.out.println("Enter Password");
                 password = cin.next();
                 if (Usertype.equals("1")) { // handling sign up for the admin
-                    Boolean ok = admin.register(dataBase ,email ,username, password);
+                    Boolean ok = admin.register(dataBase, email, username, password);
                     // check if the user is registered before
                     if (!ok)
                         System.out.println("Already Registered :) ");
@@ -80,7 +80,7 @@ public class Main {
                     }
                 } else {
                     // handling registration for the customer
-                    Boolean ok = customer.register(dataBase,email,username, password);
+                    Boolean ok = customer.register(dataBase, email, username, password);
                     // check if the user is registered before
                     if (!ok)
                         System.out.println("Already Registered :) ");
@@ -99,22 +99,46 @@ public class Main {
             String ServiceType = cin.next();
             if (ServiceType.equals("1")) {   // The customer choose from services menu
                 System.out.println("----- |Services Menu| -----\n1.Mobile Recharge Services\n2.Internet Services\n3.Landline Services\n4.Donations");
-                String choice = cin.next();
-                ServiceFactory SF = new ServiceFactory();
-                Services service = SF.getService(choice);
-                service.display();
+                String choice = cin.next(); // choose the recharge service  ( mob  , intern m landline , donations)
+                Services service; // object of the service internet or mobile
+                if (choice.equals("1") || choice.equals("2")) {
+                    System.out.println("1.Vodafone \n 2.Etisalat \n 3.Orange \n 4.WE");
+                    String chooseProvider = cin.next(); // chooses which provider to do the recharge service (ex:vod , et)
+                    ServiceProviderFactory providerFactory;
+                    if (chooseProvider.equals("1")) {
+                        providerFactory = new Vodafone();
+                        service = providerFactory.Create(choice);
+                        service.display();
+                        service.pay();
+                    }
+                    if (chooseProvider.equals("2")) {
+                        providerFactory = new Etisalat();
+                        service = providerFactory.Create(choice);
+                        service.display();
+                    }
+                    if (chooseProvider.equals("3")) {
+                        providerFactory = new Orange();
+                        service = providerFactory.Create(choice);
+                        service.display();
+                        service.pay();
+                    }
+                    if (chooseProvider.equals("4")) {
+                        providerFactory = new We();
+                        service = providerFactory.Create(choice);
+                        service.display();
+                        service.pay();
+                    }
+
+                } else if (choice.equals("3")) {
+
+                }
             } else if (ServiceType.equals("2")) {   // The Customer type the service he needs manually
                 System.out.println("Enter The Service You Need : ");
                 String choice = cin.next();
-                ServiceFactory SF = new ServiceFactory();
-                Services service = SF.getService(choice);     //Service factory is running
-                service.display();
+
 
             }
         }
-        LandlineService landline = new MonthlyReciept();
-        landline.createReciept();
-
     }
 
 

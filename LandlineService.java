@@ -9,9 +9,6 @@ public abstract class LandlineService implements Services{
         Amount =  r.nextInt(400) + 1;
     }
 
-     public void display(){
-        System.out.println("Landline Service Running");
-    }
 
     @Override
     public double getCost() {
@@ -22,7 +19,5 @@ public abstract class LandlineService implements Services{
         System.out.println("landline service genearte form");
     }
     abstract public double createReciept();
-    public void pay(){
-        System.out.println("pay inside landline service");
-    }
+
 }

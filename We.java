@@ -1,4 +1,4 @@
-public class We implements ServiceProviderFactory{
+public class We extends ServiceProviderFactory{
 
     @Override
     public MobileRechargeService createMobileService() {

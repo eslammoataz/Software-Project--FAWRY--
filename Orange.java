@@ -1,4 +1,4 @@
-public class Orange implements ServiceProviderFactory{
+public class Orange extends ServiceProviderFactory{
     @Override
     public MobileRechargeService createMobileService() { return new OrangeMobileService();
     }

@@ -11,19 +11,20 @@ public abstract class MobileRechargeService implements Services {
         Amount = r.nextInt(1000) + 1;
     }
 
-    public void display() {
-        System.out.println("Mobile Recharge Running");
-    }
+//    public void display() {
+//        System.out.println("Mobile Recharge Running");
+//    }
 
-    public void pay() {
-        System.out.println("pay inside mobile service");
-    }
+//    public void pay() {
+//        System.out.println("pay inside mobile service");
+//    }
 
     @Override
     public double getCost() {
         return Amount;
     }
 
+    @Override
     public void generateForm() {
         System.out.println("mobile service genearte form");
     }

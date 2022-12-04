@@ -5,4 +5,13 @@ public class QuarterReciept extends LandlineService{
         return Amount*4;
     }
 
+    @Override
+    public void display() {
+        System.out.println("QuarterReciept landline Recharge Running");
+    }
+
+    @Override
+    public void pay() {
+        System.out.println("QuarterReciept landline Recharge Running pay function");
+    }
 }

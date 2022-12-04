@@ -1,7 +1,8 @@
-public class Vodafone implements ServiceProviderFactory{
+public class Vodafone extends ServiceProviderFactory {
 
     @Override
-    public MobileRechargeService createMobileService() { return new VodafoneMobileService();
+    public MobileRechargeService createMobileService() {
+        return new VodafoneMobileService();
     }
 
     @Override

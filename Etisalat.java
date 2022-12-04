@@ -1,4 +1,4 @@
-public class Etisalat implements ServiceProviderFactory{
+public class Etisalat extends ServiceProviderFactory{
     @Override
     public MobileRechargeService createMobileService() { return new EtisalatMobileService();
     }
