@@ -1,2 +1,2 @@
-public class WeInternetService {
+public class WeInternetService extends InternetService {
 }

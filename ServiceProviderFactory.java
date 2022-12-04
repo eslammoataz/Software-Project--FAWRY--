@@ -1,4 +1,4 @@
 public interface ServiceProviderFactory {
-    public MobileRechargeService createMobileserive();
-    public InternetService createInternetserive();
+    public MobileRechargeService createMobileService();
+    public InternetService createInternetService();
 }

@@ -1,12 +1,11 @@
 public class Vodafone implements ServiceProviderFactory{
 
     @Override
-    public MobileRechargeService createMobileserive() {
-       return null;
+    public MobileRechargeService createMobileService() { return new VodafoneMobileService();
     }
 
     @Override
-    public InternetService createInternetserive() {
+    public InternetService createInternetService() {
         return new VodafoneInternerService();
     }
 }

@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Refund implements Subject {
     String state;
     Transaction transaction;
-    ArrayList<Observer> ObserevrList = new ArrayList<>();
+    ArrayList<Observer> ObserverList = new ArrayList<>();
 
     public Refund(Transaction t) {
         this.transaction = t;
@@ -11,17 +11,17 @@ public class Refund implements Subject {
 
     @Override
     public void add(Observer observer) {
-        ObserevrList.add(observer);
+        ObserverList.add(observer);
     }
 
     @Override
     public void remove(Observer observer) {
-        ObserevrList.remove(observer);
+        ObserverList.remove(observer);
     }
 
     @Override
     public void notifyAllObservers() {
-        for (Observer i : ObserevrList) {
+        for (Observer i : ObserverList) {
             i.update(state);
         }
     }

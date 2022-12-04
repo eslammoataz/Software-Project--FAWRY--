@@ -1,7 +1,12 @@
-public class We implements Company{
+public class We implements ServiceProviderFactory{
 
     @Override
-    public void pay(double amount) {
+    public MobileRechargeService createMobileService() {
+        return new WeMobileService();
+    }
 
+    @Override
+    public InternetService createInternetService() { return new WeInternetService();
     }
 }
+

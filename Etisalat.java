@@ -1,6 +1,9 @@
-public class Etisalat implements Company{
+public class Etisalat implements ServiceProviderFactory{
     @Override
-    public void pay(double amount) {
+    public MobileRechargeService createMobileService() { return new EtisalatMobileService();
+    }
 
+    @Override
+    public InternetService createInternetService() { return new EtisalatInternetService();
     }
 }
