@@ -103,35 +103,12 @@ public class Main {
             if (ServiceType.equals("1")) {   // The customer choose from services menu
                 System.out.println("----- |Services Menu| -----\n1.Mobile Recharge Services\n2.Internet Services\n3.Landline Services\n4.Donations");
                 String choice = cin.next(); // choose the recharge service  ( mob  , intern m landline , donations)
-                if (choice.equals("1") || choice.equals("2")) {
+                BigFactory bigFactory = new BigFactory();
+                if(choice.equals("1") || choice.equals("2")){
                     System.out.println("1.Vodafone \n 2.Etisalat \n 3.Orange \n 4.WE");
                     chooseProvider = cin.next(); // chooses which provider to do the recharge service (ex:vod , et)
-                    if (chooseProvider.equals("1") || chooseProvider.equals("Vodafone")) {
-                        providerFactory = new Vodafone();
-                        service = providerFactory.Create(choice);
-                    }
-                    if (chooseProvider.equals("2") || chooseProvider.equals("Etisalat")) {
-                        providerFactory = new Etisalat();
-                        service = providerFactory.Create(choice);
-                    }
-                    if (chooseProvider.equals("3") || chooseProvider.equals("Orange")) {
-                        providerFactory = new Orange();
-                        service = providerFactory.Create(choice);
-                    }
-                    if (chooseProvider.equals("4") || chooseProvider.equals("WE")) {
-                        providerFactory = new We();
-                        service = providerFactory.Create(choice);
-                    }
-
-                } else if (choice.equals("3")) {
-                    System.out.println("1.MonthlyRecipet \n 2.Quarter Recipet");
-                    chooseProvider = cin.next();
-                    if (chooseProvider.equals("1"))
-                        service = new MonthlyReciept();
-                    else service = new QuarterReciept();
-                } else {
-                    service = new DonationService();
                 }
+                service = bigFactory.createBig(choice,chooseProvider);
                 service.display();
                 service.pay();
             } else if (ServiceType.equals("2")) {   // The Customer type the service he needs manually
