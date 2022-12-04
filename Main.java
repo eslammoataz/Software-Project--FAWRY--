@@ -95,55 +95,30 @@ public class Main {
         if (flag == 1) {
             System.out.println("--------| Hello Admin |-------\n What Do You Want To Do ?\n 1.Add Discount \n 2.View Refunds Requests\n 3.Deal With Refunds");
         } else if (flag == 0) {
-            System.out.println("-------| Hello Customer |-------\n 1.Show Services Menu \n 2.Search for Service ");
-            String ServiceType = cin.next();
-            String chooseProvider = null;
-            ServiceProviderFactory providerFactory;
-            Services service = null; // object of the service internet or mobile
-            if (ServiceType.equals("1")) {   // The customer choose from services menu
-                System.out.println("----- |Services Menu| -----\n1.Mobile Recharge Services\n2.Internet Services\n3.Landline Services\n4.Donations");
-                String choice = cin.next(); // choose the recharge service  ( mob  , intern m landline , donations)
-                BigFactory bigFactory = new BigFactory();
-                if(choice.equals("1") || choice.equals("2")){
-                    System.out.println("1.Vodafone \n 2.Etisalat \n 3.Orange \n 4.WE");
-                    chooseProvider = cin.next(); // chooses which provider to do the recharge service (ex:vod , et)
+            int done=0;
+            do {
+                System.out.println("-------| Hello Customer |-------\n 1.Show Services Menu \n 2.Search for Service ");
+                String ServiceType = cin.next();
+                Services service = null; // object of the service internet or mobile
+                if (ServiceType.equals("1")) {   // The customer choose from services menu
+                    System.out.println("----- |Services Menu| -----\n1.Mobile Recharge Services\n2.Internet Services\n3.Landline Services\n4.Donations");
+                    String choice = cin.next(); // choose the recharge service  ( mob  , intern m landline , donations)
+                    BigFactory bigFactory = new BigFactory();
+                    service = bigFactory.createBig(choice); // create service object
+                } else if (ServiceType.equals("2")) {   // The Customer type the service he needs manually
+                    System.out.println("Enter The Service You Need : ");
+                    String choice = cin.next(); // choose the recharge service  ( mob  , intern m landline , donations)
+                    BigFactory bigFactory = new BigFactory();
+                    service = bigFactory.createBig(choice);
                 }
-                service = bigFactory.createBig(choice,chooseProvider);
-                service.display();
-                service.pay();
-            } else if (ServiceType.equals("2")) {   // The Customer type the service he needs manually
-                System.out.println("Enter The Service You Need : ");
-                String choice = cin.next();
-                if (choice.equalsIgnoreCase("Land Line Service")) {
-                    System.out.println("1.Monthly Recipet \n 2.Quarter Recipet");
-                    chooseProvider = cin.next();
-                    if (chooseProvider.equals("Monthly Recipet"))
-                        service = new MonthlyReciept();
-                    else service = new QuarterReciept();
-                } else if (choice.equalsIgnoreCase("Donations")) {
-                    service = new DonationService();
-                } else {
-                    System.out.println("1.Vodafone \n 2.Etisalat \n 3.Orange \n 4.WE");
-                    chooseProvider = cin.next(); // chooses which provider to do the recharge service (ex:vod , et)
-                    if (chooseProvider.equals("1") || chooseProvider.equals("Vodafone")) {
-                        providerFactory = new Vodafone();
-                        service = providerFactory.Create(choice);
-                    }
-                    if (chooseProvider.equals("2") || chooseProvider.equals("Etisalat")) {
-                        providerFactory = new Etisalat();
-                        service = providerFactory.Create(choice);
-                    }
-                    if (chooseProvider.equals("3") || chooseProvider.equals("Orange")) {
-                        providerFactory = new Orange();
-                        service = providerFactory.Create(choice);
-                    }
-                    if (chooseProvider.equals("4") || chooseProvider.equals("WE")) {
-                        providerFactory = new We();
-                        service = providerFactory.Create(choice);
-                    }
+                if (service != null) {
+                    service.display();
+                    service.pay();
+                    done = 1;
                 }
+            } while (done == 0);
 
-            }
+
         }
     }
 

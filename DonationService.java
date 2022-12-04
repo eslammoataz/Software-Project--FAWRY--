@@ -13,7 +13,7 @@ public class DonationService implements Services{
 
     @Override
     public void pay() {
-        System.out.println("pay insider donation service");
+        System.out.println("Donation Service Pay function");
     }
 
     @Override

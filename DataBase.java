@@ -20,7 +20,7 @@ public class DataBase {
 
     public Boolean checkAdmin(String email,String password) {
         for (Admin value : admins)
-            if (value.email.equals(email))
+            if (value.email.equals(email) && value.password.equals(password))
                 return true;
         return false;
     }
@@ -33,7 +33,7 @@ public class DataBase {
 
     public Boolean checkCustomer(String email, String password) {
         for (Customer value : customers)
-            if (value.email.equals(email))
+            if (value.email.equals(email) && value.password.equals(password))
                 return true;
         return false;
     }
