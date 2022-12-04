@@ -1,5 +1,7 @@
 public interface Services{
-    public int getCost();
+    public double getCost();
+    public void generateForm();
     public void display();
+    public void pay();
 
 }

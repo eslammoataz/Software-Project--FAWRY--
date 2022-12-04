@@ -51,7 +51,6 @@ public class Main {
                         System.out.println("No such user registered to the System");
                 } else {
                     // handling sign in for the customer
-
                     Boolean ok = customer.login(dataBase , email , password );
                     if (ok) {
                         System.out.println("Login Successfully");
@@ -113,6 +112,9 @@ public class Main {
 
             }
         }
+        LandlineService landline = new MonthlyReciept();
+        landline.createReciept();
+
     }
 
 

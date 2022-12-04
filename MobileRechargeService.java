@@ -1,24 +1,30 @@
 import java.util.*;
 
-public class MobileRechargeService implements Services{
-    Scanner sc= new Scanner(System.in);
+public abstract class MobileRechargeService implements Services {
+    double Amount;
+    Form form;
+    Scanner sc = new Scanner(System.in);
 
- public void display(){
-    System.out.println("Mobile Recharge Running");
-}
-void payment(String s,double amount){
-    System.out.println("Which Company You Deal With : \n--------------------------------\n1.Vodafone\n2.Etisalat\n3.Orange\n4.We");
-    s = sc.next();
-    CompanyFactory.selectCompany(s);
-    System.out.println("How Much Do you Want to Pay : ");
-    amount = sc.nextDouble();
-    Transaction transaction = new Transaction();
-    transaction.amount = amount;
-}
+
+    public MobileRechargeService() {
+        Random r = new Random();
+        Amount = r.nextInt(1000) + 1;
+    }
+
+    public void display() {
+        System.out.println("Mobile Recharge Running");
+    }
+
+    public void pay() {
+        System.out.println("pay inside mobile service");
+    }
 
     @Override
-    public int getCost() {
-        Random r = new Random();
-        return r.nextInt(1000) + 1;
+    public double getCost() {
+        return Amount;
+    }
+
+    public void generateForm() {
+        System.out.println("mobile service genearte form");
     }
 }

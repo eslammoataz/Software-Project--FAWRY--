@@ -1,7 +1,12 @@
-public class Vodafone implements Company{
+public class Vodafone implements ServiceProviderFactory{
 
     @Override
-    public void pay(double amount) {
+    public MobileRechargeService createMobileserive() {
+       return null;
+    }
 
+    @Override
+    public InternetService createInternetserive() {
+        return new VodafoneInternerService();
     }
 }

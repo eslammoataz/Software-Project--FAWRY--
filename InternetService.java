@@ -1,8 +1,14 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class InternetService implements Services{
+public abstract class InternetService implements Services{
+    double Amount;
+    Form form;
     Scanner sc= new Scanner(System.in);
+    public InternetService(){
+        Random r = new Random();
+        Amount = r.nextInt(700) + 1;
+    }
 
     public void display(){
         System.out.println("Internet Service Running");
@@ -19,8 +25,15 @@ public class InternetService implements Services{
 
 
     @Override
-    public int getCost() {
-        Random r = new Random();
-        return r.nextInt(700) + 1;
+    public double getCost() {
+        return Amount;
+    }
+
+    @Override
+    public void generateForm() {
+        System.out.println("internet service genearte form");
+    }
+    public void pay(){
+        System.out.println("pay in internet service");
     }
 }

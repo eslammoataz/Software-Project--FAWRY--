@@ -5,4 +5,9 @@ public class CreditCardPayment implements Payment{
         System.out.println("Customer pays the money " + amount + " using Credit Card");
 
     }
+
+    @Override
+    public void pay(double amount) {
+
+    }
 }
