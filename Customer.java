@@ -68,7 +68,7 @@ public class Customer implements User, Observer {
     public void walletFund() {
         System.out.println("Amount you want to add to your wallet");
         Double amount = cin.nextDouble();
-        System.out.println("Choose way of payment \n 1.Credit Card  \n2.Cash");
+        System.out.println("Choose way of payment \n1.Credit Card  \n2.Cash");
         String choice = cin.next();
         Payment payment = null;
         if (choice.equals("1"))

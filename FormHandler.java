@@ -8,15 +8,17 @@ public class FormHandler {
     Customer customer;
     Double amountEntered;
     Transaction transaction;
+    DataBase dataBase = null;
     Scanner cin = new Scanner(System.in);
 
-    public FormHandler(Customer customer, Services service, Form form) {
+    public FormHandler(Customer customer, Services service, Form form , DataBase dataBase) {
         this.service = service;
         this.form = form;
         setPayment(form);
         amountEntered = Double.parseDouble(form.attr.get("Amount"));
         this.customer = customer;
         transaction = new Transaction();
+        this.dataBase = dataBase;
     }
 
     void setPayment(Form form) {
@@ -57,7 +59,7 @@ public class FormHandler {
         }
         transaction=payment.pay(customer,amountEntered);
         customer.transactions.add(transaction);
-        System.exit(0);
+//        System.exit(0);
     }
 
 
