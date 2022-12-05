@@ -1,10 +1,5 @@
 public class OverallDiscount implements DiscountDecorator {
     @Override
-    public double getCost() {
-        return 0;
-    }
-
-    @Override
     public void generateForm() {
 
     }
@@ -16,6 +11,11 @@ public class OverallDiscount implements DiscountDecorator {
 
     @Override
     public void pay() {
+
+    }
+
+    @Override
+    public void setForm(Form form) {
 
     }
 }

@@ -1,5 +1,15 @@
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
 
 public class Form {
-    ArrayList<String>attributes = new ArrayList<>();
+    String wayOfPayment = null;
+    HashMap<String, String> attr = new HashMap<>();
+    Scanner cin = new Scanner(System.in);
+
+    public void paymentMethod() {
+        do {
+            System.out.println("Choose way of payment \n 1.Credit Card (default)\n2.Wallet \n3.Cash");
+            wayOfPayment = cin.next();
+        }while (wayOfPayment ==null);
+    }
 }
