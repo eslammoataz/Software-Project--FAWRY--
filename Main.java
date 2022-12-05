@@ -118,9 +118,8 @@ public class Main {
                 }
             } while (done == 0);
             Form inputform = new Form();
-            service.generateForm(); // generating form of the choose payment method
             service.setForm(inputform);
-            inputform.paymentMethod(); // let the customer choose payment method cd or chash or wallet
+            service.generateForm(); // generating form of the choose payment method
             FormHandler formHandler = new FormHandler(customer, service, inputform);
             formHandler.procesaInformation(); // procces the transaction , adding transcation to user transcations , doing action
         }

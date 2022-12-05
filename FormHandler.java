@@ -16,34 +16,35 @@ public class FormHandler {
         this.service = service;
         this.form = form;
         setPayment(form);
+        amountEntered = Double.parseDouble(form.attr.get("Amount"));
         this.customer = customer;
         transaction = new Transaction();
     }
 
     void setPayment(Form form) {
-        if (form.wayofPayment.equals("Credit Card"))
+        if (form.wayofPayment.equals("Credit Card") || form.wayofPayment.equals("1"))
             payment = new CreditCardPayment();
-        else if (form.wayofPayment.equals("Wallet"))
+        else if (form.wayofPayment.equals("Wallet")|| form.wayofPayment.equals("2"))
             payment = new WalletPayment();
         else payment = new CashPayment();
     }
 
     void procesaInformation() {
-        int exit = -1;
+        String exit = "1";
         if (payment instanceof WalletPayment) {
-            amountEntered = Double.parseDouble(form.attr.get("Amount"));
             if (amountEntered > customer.wallet) {
                 System.out.println("Not Enough Wallet Money :(\n 1.Pay with another method \n2. Exit");
-                exit = cin.nextInt();
+                exit = cin.next();
+                if (exit.equals("1")){
+                    form.paymentMethod();
+                    setPayment(form);
+                }else  System.exit(0);
             }
-            if (exit == 2)
-                System.exit(0);
-            form.paymentMethod();
         }
         System.out.println("Cofirmation");
         for (Map.Entry<String, String> mapElement : form.attr.entrySet()) {
             String key = mapElement.getKey();
-            String value = (mapElement.getValue() + 10);
+            String value = (mapElement.getValue());
             System.out.println(key + " : " + value);
         }
         int agree = -1;
