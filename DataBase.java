@@ -4,12 +4,9 @@ import java.util.Scanner;
 public class DataBase {
     ArrayList<Admin> admins = new ArrayList<>();
     ArrayList<Customer> customers = new ArrayList<>();
+    ArrayList<Double> discounts = new ArrayList<>();
     Scanner cin = new Scanner(System.in);
 
-    // creating admin object  "account"
-
-//    Admin admin1 = new Admin("kareem@gmail.com", "kareem", "456");
-//    Admin admin2 = new Admin("hassan@gmail.com", "hassan", "000");
 
 
     //adding admins to the list of admins authorized

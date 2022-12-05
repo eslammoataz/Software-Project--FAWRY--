@@ -25,8 +25,12 @@ public class Admin implements User{
         }
         return false;
     }
-    public void addDiscount(){
-
+    public void addDiscount(DataBase dataBase){
+        Double discount;
+        System.out.println("Enter Discount Amount");
+        discount= cin.nextDouble();
+        dataBase.discounts.add(discount);
+        System.out.println("Discount Added Successfully");
     }
     public void viewRefunds(){
     }
