@@ -47,7 +47,7 @@ public class Main {
                         Boolean ok = admin.login(dataBase, email, password);
                         if (ok) {
                             System.out.println("Login Successfully");
-                            admin = dataBase.setAdmin(email, password);
+                            admin = dataBase.getAdmin(email, password);
                             flag = 1;
                             login = 1;
                         } else
@@ -57,6 +57,7 @@ public class Main {
                         Boolean ok = customer.login(dataBase, email, password);
                         if (ok) {
                             System.out.println("Login Successfully");
+                            customer = dataBase.getCustomer(email, password);
                             login = 1;
                         } else
                             System.out.println("No such user registered to the System");
@@ -65,7 +66,6 @@ public class Main {
                     String Usertype;
                     System.out.println("    \tChoose \n----------------------- \n 1.Admin \n 2.Customer");
                     Usertype = cin.next();
-
                     System.out.println("Enter Email:");
                     email = cin.next();
                     System.out.println("Enter User Name:");
@@ -120,9 +120,9 @@ public class Main {
                 int repeat = 0;
 
                 do {
-                    int dontdo=0;
+                    int dontdo = 0;
                     do {
-                        System.out.println("-------| Hello Customer |-------\n 1.Show Services Menu \n 2.Search for Service \n 3.Veiw Discounts \n 4.Add to Wallet \n 5.Sign out \n 6.Exit ");
+                        System.out.println("-------| Hello Customer |-------\n 1.Show Services Menu \n 2.Search for Service \n 3.Veiw Discounts \n 4.Add to Wallet \n 5.request refund \n 6.Sign out \n 7.Exit ");
                         String ServiceType = cin.next();
                         // object of the service internet or mobile
                         if (ServiceType.equals("1")) {   // The customer choose from services menu
@@ -131,7 +131,7 @@ public class Main {
                             BigFactory bigFactory = new BigFactory();
                             service = bigFactory.createBig(choice); // create service object
                         } else if (ServiceType.equals("2")) {   // The Customer type the service he needs manually
-                            System.out.println("Enter The Service You Need : ");
+                            System.out.println("Enter The Service Name You Need : Mobile Recharge Services | Internet Services | Landline Services | Donations ");
                             String choice = cin.next(); // choose the recharge service  ( mob  , intern m landline , donations)
                             BigFactory bigFactory = new BigFactory();
                             service = bigFactory.createBig(choice);
@@ -140,18 +140,21 @@ public class Main {
                         } else if (ServiceType.equals("4")) {
                             customer.walletFund();
                         } else if (ServiceType.equals("5")) {
-                            repeat=1;
-                            dontdo=1;
-                            done=1;
-                            restart=0;
-                        } else if (ServiceType.equals("6"))
+                            customer.refundRequest(dataBase);
+                            dontdo = 1;
+                        } else if (ServiceType.equals("6")) {
+                            repeat = 1;
+                            dontdo = 1;
+                            done = 1;
+                            restart = 0;
+                        } else if (ServiceType.equals("7"))
                             System.exit(0);
 
                         if (service != null) {
                             done = 1;
                         }
                     } while (done == 0);
-                    if(dontdo==0){
+                    if (dontdo == 0) {
                         Form inputform = new Form();
                         service.setForm(inputform);
                         service.generateForm(); // generating form of the choose payment method
@@ -159,7 +162,7 @@ public class Main {
                         formHandler.proccessInformation(); // procces the transaction , adding transcation to user transcations , doing action
                     }
 
-                } while (repeat==0);
+                } while (repeat == 0);
             }
 
         } while (restart == 0);

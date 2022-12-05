@@ -8,7 +8,7 @@ public class Form {
 
     public void paymentMethod() {
         do {
-            System.out.println("Choose way of payment \n 1.Credit Card (default)\n2.Wallet \n3.Cash");
+            System.out.println("Choose way of payment \n1.Credit Card (default)\n2.Wallet \n3.Cash");
             wayOfPayment = cin.next();
         }while (wayOfPayment ==null);
     }

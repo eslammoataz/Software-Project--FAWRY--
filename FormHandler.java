@@ -19,6 +19,7 @@ public class FormHandler {
         this.customer = customer;
         transaction = new Transaction();
         this.dataBase = dataBase;
+        transaction.userName = customer.userName;
     }
 
     void setPayment(Form form) {

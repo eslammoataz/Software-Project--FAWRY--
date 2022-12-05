@@ -40,7 +40,7 @@ public class Admin implements User {
         }else if(type.equals("2")){
             discount = new SpecificDiscount(amount);
         }
-        System.out.println("Discount Added Successfully");
+        System.out.println("Discount added successfully");
         dataBase.addDiscount(discount);
     }
 

@@ -8,17 +8,6 @@ public class DataBase {
     ArrayList<Refund> refundRequest = new ArrayList<>();
     Scanner cin = new Scanner(System.in);
     public DataBase(){
-        Transaction t = new Transaction();
-        t.userName="dsds";
-        t.amount=4554;
-        Refund refund = new Refund(t);
-        refundRequest.add(refund);
-        Transaction t2 = new Transaction();
-        t2.userName="a7a";
-        t2.amount=111;
-        Refund refund1 = new Refund(t2);
-        refundRequest.add(refund1);
-
     }
     public void addDiscount(Discount discount) {
         discounts.add(discount);
@@ -38,13 +27,13 @@ public class DataBase {
                 return true;
         return false;
     }
-    public Admin setAdmin(String email,String password) {
-        Admin tempAdmin = null;
-        for (Admin value : admins)
-            if (value.email.equals(email) && value.password.equals(password))
-                tempAdmin = value;
-        return tempAdmin;
-    }
+//    public Admin setAdmin(String email,String password) {
+//        Admin tempAdmin = null;
+//        for (Admin value : admins)
+//            if (value.email.equals(email) && value.password.equals(password))
+//                tempAdmin = value;
+//        return tempAdmin;
+//    }
 
 
     public void addCustomer(String email, String username, String passwrod) {
@@ -57,6 +46,20 @@ public class DataBase {
             if (value.email.equals(email) && value.password.equals(password))
                 return true;
         return false;
+    }
+    public Customer getCustomer(String email, String password) {
+        Customer c = null;
+        for (Customer value : customers)
+            if (value.email.equals(email) && value.password.equals(password))
+                c= value;
+        return c;
+    }
+    public Admin getAdmin(String email, String password) {
+        Admin c = null;
+        for (Admin value : admins)
+            if (value.email.equals(email) && value.password.equals(password))
+                c= value;
+        return c;
     }
 
 
