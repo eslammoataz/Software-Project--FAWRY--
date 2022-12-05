@@ -39,14 +39,18 @@ public class Customer implements User, Observer {
     public void viewDiscounts(DataBase dataBase) {
         int c = 1;
         for (Discount discount : dataBase.discounts) {
-            System.out.println(c + " " + discount.getDiscountAmount() + " " + discount.getDiscountAmount());
+            System.out.println(c + "- " + discount.getDiscountName() + " " + discount.getDiscountAmount());
             c++;
         }
     }
 
-    public Refund refundRequest(Transaction a, DataBase dataBase) {
+    public void refundRequest( DataBase dataBase) {
         Refund refund = null;
         int counter = 1;
+        if(transactions.size()==0){
+            System.out.println("NO Transactions done before");
+            return;
+        }
         for (Transaction transaction : transactions) {
             System.out.println("Transaction " + counter + " " + transaction.amount);
             counter++;
@@ -62,7 +66,8 @@ public class Customer implements User, Observer {
                 break;
             }
         }
-        return refund;
+        dataBase.refundRequest.add(refund);
+        System.out.println("Refund request completed");
     }
 
     public void walletFund() {
