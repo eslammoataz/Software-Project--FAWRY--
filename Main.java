@@ -112,7 +112,7 @@ public class Main {
             int done = 0;
             Services service = null;
             do {
-                System.out.println("-------| Hello Customer |-------\n 1.Show Services Menu \n 2.Search for Service \n 3.Veiw Discounts \n 4.Exit ");
+                System.out.println("-------| Hello Customer |-------\n 1.Show Services Menu \n 2.Search for Service \n 3.Veiw Discounts \n 4.Add to Wallet \n 5.Exit ");
                 String ServiceType = cin.next();
                 // object of the service internet or mobile
                 if (ServiceType.equals("1")) {   // The customer choose from services menu
@@ -128,6 +128,8 @@ public class Main {
                 }else if(ServiceType.equals("3")){
                     customer.viewDiscounts(dataBase);
                 }else if (ServiceType.equals("4")){
+                    customer.walletFund();
+                }if (ServiceType.equals("5")) {
                     System.exit(0);
                 }
                 if (service != null) {

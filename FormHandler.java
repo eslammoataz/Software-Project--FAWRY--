@@ -26,6 +26,9 @@ public class FormHandler {
             payment = new WalletPayment();
         else payment = new CashPayment();
     }
+    void addtoWallet(){
+        customer.wallet+=amountEntered;
+    }
 
     void proccessInformation() {
         String exit = "1";

@@ -12,6 +12,7 @@ public abstract class MobileRechargeService implements Services {
         Amount = r.nextInt(1000) + 1;
     }
     public void setForm(Form form){
+
         this.form = form;
     }
 
@@ -20,12 +21,12 @@ public abstract class MobileRechargeService implements Services {
         String MobileService;
         String amountToPay;
         System.out.println("Enter your Mobile Number :");
+//        viewServiceAmount();
         MobileService = cin.next();
         System.out.println("Enter Amount to Pay :");
         amountToPay = cin.next();
         form.attr.put("Mobile Number" , MobileService);
         form.attr.put("Amount" , amountToPay);
-        viewServiceAmount();
         form.paymentMethod();
     }
 
