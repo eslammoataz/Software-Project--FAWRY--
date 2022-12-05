@@ -1,3 +1,4 @@
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -39,11 +40,25 @@ public class Customer implements User, Observer {
 
     }
 
-    public void refundRequest(Transaction a) {
-        Refund refund = new Refund(a);
-        refund.transaction.userName = a.userName;
-        refund.transaction.amount = a.amount;
-        refund.state = "Pending";
+    public Refund refundRequest(Transaction a, DataBase dataBase) {
+        Refund refund = null;
+        int counter = 1;
+        for (Transaction transaction : transactions) {
+            System.out.println("Transaction " + counter + " " + transaction.amount);
+            counter++;
+        }
+        int choice = 0;
+        System.out.println("choose trancation to do refund request");
+        choice = cin.nextInt();
+        for (Transaction transaction : transactions) {
+            choice--;
+            if (choice == 0) {
+                refund = new Refund(transaction);
+                refund.state = "pending";
+                break;
+            }
+        }
+        return refund;
     }
 
     @Override

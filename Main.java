@@ -6,10 +6,11 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner cin = new Scanner(System.in);
+        DataBase dataBase = new DataBase();
+
         Customer customer = new Customer(null, null, null);
         Admin admin = new Admin(null, null, null);
         //database of all info of the users
-        DataBase dataBase = new DataBase();
 
         //adding admins to the list of admins authorized
         dataBase.addAdmin("ali", "eslam", "123");
@@ -45,6 +46,7 @@ public class Main {
                     Boolean ok = admin.login(dataBase, email, password);
                     if (ok) {
                         System.out.println("Login Successfully");
+                        admin=dataBase.setAdmin(email,password);
                         flag = 1;
                         login = 1;
                     } else
@@ -94,6 +96,14 @@ public class Main {
 
         if (flag == 1) {
             System.out.println("--------| Hello Admin |-------\n What Do You Want To Do ?\n 1.Add Discount \n 2.View Refunds Requests\n 3.Deal With Refunds");
+            String Service = cin.next();  //Admin choosing service to do
+            if (Service.equals("1")) {
+                admin.addDiscount(dataBase);
+            } else if (Service.equals("2")) {
+                admin.viewRefunds(dataBase);
+            } else if (Service.equals("3")) {
+                admin.dealWithRefund(dataBase);
+            }
         } else if (flag == 0) {
             int done = 0;
             Services service = null;
