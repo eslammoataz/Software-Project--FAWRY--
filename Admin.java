@@ -30,10 +30,6 @@ public class Admin implements User{
     }
     public void viewRefunds(){
     }
-    public Boolean signOut(){
-
-        return null;
-    }
     public void dealWithRefund(){
 
     }

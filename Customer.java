@@ -35,11 +35,6 @@ public class Customer implements User, Observer {
         return false;
     }
 
-    public Boolean signOut() {
-
-        return null;
-    }
-
     public static void searchService() {
 
     }
