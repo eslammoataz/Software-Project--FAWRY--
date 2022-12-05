@@ -1,10 +1,5 @@
 public class MonthlyReciept extends LandlineService{
 
-    @Override
-    public double createReciept() {
-        System.out.println("your monthly receipt is "+Amount);
-        return Amount;
-    }
 
     @Override
     public void display() {

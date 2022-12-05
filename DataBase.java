@@ -4,13 +4,10 @@ import java.util.Scanner;
 public class DataBase {
     ArrayList<Admin> admins = new ArrayList<>();
     ArrayList<Customer> customers = new ArrayList<>();
-    ArrayList<Double> discounts = new ArrayList<>();
+    ArrayList<Discount> discounts = new ArrayList<>();
     ArrayList<Refund> refundRequest = new ArrayList<>();
     Scanner cin = new Scanner(System.in);
     public DataBase(){
-        discounts.add(0.25);
-        discounts.add(0.50);
-        discounts.add(0.75);
         Transaction t = new Transaction();
         t.userName="dsds";
         t.amount=4554;
@@ -22,6 +19,9 @@ public class DataBase {
         Refund refund1 = new Refund(t2);
         refundRequest.add(refund1);
 
+    }
+    public void addDiscount(Discount discount) {
+        discounts.add(discount);
     }
 
 

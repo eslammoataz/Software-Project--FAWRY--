@@ -16,6 +16,13 @@ public class DonationService implements Services {
         this.form = form;
     }
 
+    public void setAmount(Double amount){
+        this.Amount=amount;
+    }
+    public Double getAmount(){
+        return Amount;
+    }
+
     public void display() {
         System.out.println("Donation Service Running");
     }
@@ -37,5 +44,9 @@ public class DonationService implements Services {
         form.attr.put("Amount" , amountToPay);
         form.paymentMethod();
     }
+    public void viewServiceAmount(){
+        System.out.println("Service Amount Required is "+Amount);
+    }
+
 }
 

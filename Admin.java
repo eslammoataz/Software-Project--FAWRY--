@@ -30,11 +30,18 @@ public class Admin implements User {
     }
 
     public void addDiscount(DataBase dataBase) {
-        Double discount;
-        System.out.println("Enter Discount Amount");
-        discount = cin.nextDouble();
-        dataBase.discounts.add(discount);
+        System.out.println("what kind of discounts :\n 1.Specific \n 2.OverAll");
+        String type = cin.next();
+        System.out.println("Enter Amount of dicount divided by 100 (ex:0.75) \n");
+        Double amount = cin.nextDouble();
+        Discount discount = null;
+        if(type.equals("1")){
+            discount = new SpecificDiscount(amount);
+        }else if(type.equals("2")){
+            discount = new SpecificDiscount(amount);
+        }
         System.out.println("Discount Added Successfully");
+        dataBase.addDiscount(discount);
     }
 
     public void viewRefunds(DataBase dataBase) {
@@ -60,6 +67,7 @@ public class Admin implements User {
                     refund.state = "Rejected";
                     refund.notifyAllObservers();
                 }
+                dataBase.refundRequest.remove(refund);
                 break;
             }
         }

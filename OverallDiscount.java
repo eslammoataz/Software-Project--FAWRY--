@@ -1,21 +1,27 @@
-public class OverallDiscount implements DiscountDecorator {
-    @Override
-    public void generateForm() {
+public class OverallDiscount implements Discount {
 
+    Double discountAmount = 0.75;
+    String discountName = "Overall Discount";
+
+    public OverallDiscount(Double discountAmount) {
+        this.discountAmount = discountAmount;
     }
 
     @Override
-    public void display() {
-
+    public void applyDiscount(Services service) {
+        Double amount = service.getAmount();
+        System.out.println("Specific discount added");
+        amount *= discountAmount;
+        service.setAmount(amount);
     }
 
     @Override
-    public void pay() {
-
+    public String getDiscountName() {
+        return discountName;
     }
 
     @Override
-    public void setForm(Form form) {
-
+    public Double getDiscountAmount() {
+        return discountAmount;
     }
 }
