@@ -1,12 +1,11 @@
 
 public class CashPayment implements Payment{
 
-    @Override
-    public void paymentCost(String amount) {
-        System.out.println("Customer pays the money " + amount + " cash ");
-    }
-
-    @Override
-    public void pay(double amount) {
+    public Transaction pay(Customer customer, double amount) {
+        Transaction transaction = new Transaction();
+        System.out.println("Transaction Done Succesfully By Vash Payment");
+        transaction.amount = amount;
+        transaction.userName = customer.userName;
+        return transaction;
     }
 }

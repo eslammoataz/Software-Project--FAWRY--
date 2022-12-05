@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Customer implements User, Observer {
 
-    double wallet = 0;
+    double wallet = 200;
     Scanner cin = new Scanner(System.in);
     //list transactions
     //list refunds

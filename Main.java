@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.logging.Handler;
 
 
 public class Main {
@@ -95,11 +96,12 @@ public class Main {
         if (flag == 1) {
             System.out.println("--------| Hello Admin |-------\n What Do You Want To Do ?\n 1.Add Discount \n 2.View Refunds Requests\n 3.Deal With Refunds");
         } else if (flag == 0) {
-            int done=0;
+            int done = 0;
+            Services service = null;
             do {
                 System.out.println("-------| Hello Customer |-------\n 1.Show Services Menu \n 2.Search for Service ");
                 String ServiceType = cin.next();
-                Services service = null; // object of the service internet or mobile
+                // object of the service internet or mobile
                 if (ServiceType.equals("1")) {   // The customer choose from services menu
                     System.out.println("----- |Services Menu| -----\n1.Mobile Recharge Services\n2.Internet Services\n3.Landline Services\n4.Donations");
                     String choice = cin.next(); // choose the recharge service  ( mob  , intern m landline , donations)
@@ -112,13 +114,15 @@ public class Main {
                     service = bigFactory.createBig(choice);
                 }
                 if (service != null) {
-                    service.display();
-                    service.pay();
                     done = 1;
                 }
             } while (done == 0);
-
-
+            Form inputform = new Form();
+            service.generateForm(); // generating form of the choose payment method
+            service.setForm(inputform);
+            inputform.paymentMethod(); // let the customer choose payment method cd or chash or wallet
+            FormHandler formHandler = new FormHandler(customer, service, inputform);
+            formHandler.procesaInformation(); // procces the transaction , adding transcation to user transcations , doing action
         }
     }
 
