@@ -6,6 +6,7 @@ public abstract class MobileRechargeService implements Services {
     Scanner cin = new Scanner(System.in);
 
 
+
     public MobileRechargeService() {
         Random r = new Random();
         Amount = r.nextInt(1000) + 1;
@@ -24,6 +25,18 @@ public abstract class MobileRechargeService implements Services {
         amountToPay = cin.next();
         form.attr.put("Mobile Number" , MobileService);
         form.attr.put("Amount" , amountToPay);
+        viewServiceAmount();
         form.paymentMethod();
     }
+
+    public void setAmount(Double amount){
+        this.Amount=amount;
+    }
+    public Double getAmount(){
+        return Amount;
+    }
+    public void viewServiceAmount(){
+        System.out.println("Service Amount Required is "+Amount);
+    }
+
 }

@@ -30,8 +30,17 @@ public abstract class LandlineService implements Services{
         form.attr.put("Zip Code" , zipCode);
         form.attr.put("Landline number" , landlineNumber);
         form.attr.put("Amount" , amountToPay);
+        viewServiceAmount();
         form.paymentMethod();
     }
-    abstract public double createReciept();
+    public void viewServiceAmount(){
+        System.out.println("Service Amount Required is "+Amount);
+    }
 
+    public void setAmount(Double amount){
+        this.Amount=amount;
+    }
+    public Double getAmount(){
+        return Amount;
+    }
 }

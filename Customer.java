@@ -36,8 +36,12 @@ public class Customer implements User, Observer {
         return false;
     }
 
-    public static void searchService() {
-
+    public void viewDiscounts(DataBase dataBase) {
+        int c=1;
+            for(Discount discount : dataBase.discounts){
+                System.out.println(c+" "+discount.getDiscountAmount()+" "+ discount.getDiscountAmount());
+                c++;
+            }
     }
 
     public Refund refundRequest(Transaction a, DataBase dataBase) {
@@ -63,6 +67,6 @@ public class Customer implements User, Observer {
 
     @Override
     public void update(String message) {
-        System.out.println("Got New Notification about Refund !" + userName + " \n" + message);
+        System.out.println("Customer "+userName+ " Got New Notification about Refund ! : "+ message);
     }
 }

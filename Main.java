@@ -95,20 +95,24 @@ public class Main {
         } while (login == 0);
 
         if (flag == 1) {
-            System.out.println("--------| Hello Admin |-------\n What Do You Want To Do ?\n 1.Add Discount \n 2.View Refunds Requests\n 3.Deal With Refunds");
-            String Service = cin.next();  //Admin choosing service to do
-            if (Service.equals("1")) {
-                admin.addDiscount(dataBase);
-            } else if (Service.equals("2")) {
-                admin.viewRefunds(dataBase);
-            } else if (Service.equals("3")) {
-                admin.dealWithRefund(dataBase);
-            }
+            int exit=0;
+            do {
+                System.out.println("--------| Hello Admin |-------\n What Do You Want To Do ?\n 1.Add Discount \n 2.View Refunds Requests\n 3.Deal With Refunds \n 4.Exit" );
+                String Service = cin.next();  //Admin choosing service to do
+                if (Service.equals("1")) {
+                    admin.addDiscount(dataBase);
+                } else if (Service.equals("2")) {
+                    admin.viewRefunds(dataBase);
+                } else if (Service.equals("3")) {
+                    admin.dealWithRefund(dataBase);
+                }else if(Service.equals("4"))
+                    exit=1;
+            }while (exit==0);
         } else if (flag == 0) {
             int done = 0;
             Services service = null;
             do {
-                System.out.println("-------| Hello Customer |-------\n 1.Show Services Menu \n 2.Search for Service ");
+                System.out.println("-------| Hello Customer |-------\n 1.Show Services Menu \n 2.Search for Service \n 3.Veiw Discounts \n 4.Exit ");
                 String ServiceType = cin.next();
                 // object of the service internet or mobile
                 if (ServiceType.equals("1")) {   // The customer choose from services menu
@@ -121,6 +125,10 @@ public class Main {
                     String choice = cin.next(); // choose the recharge service  ( mob  , intern m landline , donations)
                     BigFactory bigFactory = new BigFactory();
                     service = bigFactory.createBig(choice);
+                }else if(ServiceType.equals("3")){
+                    customer.viewDiscounts(dataBase);
+                }else if (ServiceType.equals("4")){
+                    System.exit(0);
                 }
                 if (service != null) {
                     done = 1;
