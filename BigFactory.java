@@ -30,7 +30,7 @@ public class BigFactory {
                 service = providerFactory.Create(choice);
             }
         } else if (choice.equals("3") || choice.equalsIgnoreCase("Landline Service")) {
-            System.out.println("1.Monthly Recipet \n 2.Quarter Recipet");
+            System.out.println("1.Monthly Reciept \n 2.Quarter Receipt");
             chooseProvider = cin.next();
             if (chooseProvider.equals("1"))
                 service = new MonthlyReciept();
@@ -38,7 +38,7 @@ public class BigFactory {
         } else if(choice.equals("4") || choice.equalsIgnoreCase("Donation"))
             service = new DonationService();
         else
-            System.out.println("No Such service exist");
+            System.out.println("No Such service Exist");
         return service;
     }
 }

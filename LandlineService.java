@@ -19,13 +19,13 @@ public abstract class LandlineService implements Services{
         String amountToPay;
         String zipCode;
 
-        System.out.println("Enter your Zip Code");
+        System.out.println("Enter your Zip Code : ");
         zipCode = cin.next();
 
-        System.out.println("Enter your Landline Number");
+        System.out.println("Enter your Landline Number :");
         landlineNumber = cin.next();
 
-        System.out.println("Enter Amount to Pay");
+        System.out.println("Enter Amount to Pay :");
         amountToPay = cin.next();
         form.attr.put("Zip Code" , zipCode);
         form.attr.put("Landline number" , landlineNumber);

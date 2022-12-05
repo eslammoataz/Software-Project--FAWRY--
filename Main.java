@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.logging.Handler;
 
 
 public class Main {
@@ -121,7 +120,7 @@ public class Main {
             service.setForm(inputform);
             service.generateForm(); // generating form of the choose payment method
             FormHandler formHandler = new FormHandler(customer, service, inputform);
-            formHandler.procesaInformation(); // procces the transaction , adding transcation to user transcations , doing action
+            formHandler.proccessInformation(); // procces the transaction , adding transcation to user transcations , doing action
         }
     }
 

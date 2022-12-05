@@ -20,12 +20,12 @@ public abstract class InternetService implements Services {
         String amountToPay;
         String Name;
 
-        System.out.println("Enter your Name");
+        System.out.println("Enter your Name :");
         Name = cin.next();
 
-        System.out.println("Enter your Internet Number");
+        System.out.println("Enter your Internet Number :");
         landlineNumber = cin.next();
-        System.out.println("Enter Amount to Pay");
+        System.out.println("Enter Amount to Pay :");
         amountToPay = cin.next();
         form.attr.put("Name", Name);
         form.attr.put("Landline number", landlineNumber);

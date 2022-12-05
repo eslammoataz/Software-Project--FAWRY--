@@ -18,9 +18,9 @@ public abstract class MobileRechargeService implements Services {
     public void generateForm() {
         String MobileService;
         String amountToPay;
-        System.out.println("Enter your Mobile Number");
+        System.out.println("Enter your Mobile Number :");
         MobileService = cin.next();
-        System.out.println("Enter Amount to Pay");
+        System.out.println("Enter Amount to Pay :");
         amountToPay = cin.next();
         form.attr.put("Mobile Number" , MobileService);
         form.attr.put("Amount" , amountToPay);

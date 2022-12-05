@@ -29,9 +29,9 @@ public class DonationService implements Services {
     public void generateForm() {
         String org;
         String amountToPay;
-        System.out.println("Enter the Orgnization");
+        System.out.println("Enter the Organization :");
         org = cin.next();
-        System.out.println("Amount to donate");
+        System.out.println("Amount to Donate :");
         amountToPay = cin.next();
         form.attr.put("Organization",org);
         form.attr.put("Amount" , amountToPay);

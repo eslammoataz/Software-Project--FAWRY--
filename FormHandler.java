@@ -1,6 +1,4 @@
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class FormHandler {
@@ -22,14 +20,14 @@ public class FormHandler {
     }
 
     void setPayment(Form form) {
-        if (form.wayofPayment.equals("Credit Card") || form.wayofPayment.equals("1"))
+        if (form.wayOfPayment.equals("Credit Card") || form.wayOfPayment.equals("1"))
             payment = new CreditCardPayment();
-        else if (form.wayofPayment.equals("Wallet")|| form.wayofPayment.equals("2"))
+        else if (form.wayOfPayment.equals("Wallet")|| form.wayOfPayment.equals("2"))
             payment = new WalletPayment();
         else payment = new CashPayment();
     }
 
-    void procesaInformation() {
+    void proccessInformation() {
         String exit = "1";
         if (payment instanceof WalletPayment) {
             if (amountEntered > customer.wallet) {
@@ -41,7 +39,7 @@ public class FormHandler {
                 }else  System.exit(0);
             }
         }
-        System.out.println("Cofirmation");
+        System.out.println("Confirmation");
         for (Map.Entry<String, String> mapElement : form.attr.entrySet()) {
             String key = mapElement.getKey();
             String value = (mapElement.getValue());
